@@ -325,6 +325,10 @@ let detailRender=(function(){
         }
     }
 })();
+//以后在真实项目中，如果页面中有滑动需求，我们一定要把document本身滑动的默认行为阻止掉（不阻止，浏览器中预览，会触发下拉刷新或者左右滑动切换也卡等功能）
+$(document).on("touchstart touchmove touchend",(ev)=>{
+    ev.preventDefault();
+});
 //开发过程中，由于当前项目板块过多（每一个板块都是一个单例），我们最好规划一种机制：通过标识的判断可以让程序只执行对应的版块内容，这样开发那个板块，我们就把标识改为啥（hash路由控制）---路由验证
 let url=window.location.href, //获取当前页面的url地址 location.href="xxx"这种写法是让其跳转到某一个页面
     well=url.indexOf("#"),
