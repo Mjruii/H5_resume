@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- DEV -->
+    <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+    <link rel="stylesheet/less" href="./css/index.less">
+    <script src="./js/less-2.5.3.min.js"></script>
+    <!-- prefixfree -->
+    <link rel="stylesheet" href="./js/prefixfree.min.js">
+    <!-- rem -->
+    <script>
+        ~function(window){
+            let computedREM=function computedREM(){
+                let winW=document.documentElement.clientWidth,
+                    desW=640;
+                if(winW>=640){
+                document.documentElement.style.fontSize="100px"
+                return;       
+                }
+                document.documentElement.style.fontSize=winW/desW*100+"px";
+            };
+            computedREM();
+            window.addEventListener("resize",computedREM);
+        }(window);
+    </script>
+</head>
+<body>
+    <main class="mainBox">
+        <!-- loading -->
+        <section class="loadingBox">
+            <div class="title">
+                <h1>珠峰培训</h1>
+                <h2>H5场景交互型简历</h2>
+            </div>
+            <div class="progress">
+                <div class="current"></div>
+            </div>
+        </section>
+        <!-- phone -->
+        <section class="phoneBox">
+            <h2><img src="img/zf_phoneLogo.png" alt=""><span></span></h2>
+            <div class="answer">
+                <div class="markMove"></div>
+                <a href="javascript:;" class="markLink"></a>
+            </div>
+            <div class="hang">
+                <a href="javascript:;" class="markLink"></a>
+            </div>
+            <!-- 关于audio的一些常用属性：
+                [属性]
+                1.duration：播放的总时间（s）
+                2.currentTime：当前已经播放的时间（s）
+                3.ended：是否已经播放完成
+                4.paused：当前是否为暂停状态
+                5.volume：控制音量（0~1）
+                [事件]
+                canplay：可以正常播放（但是播放过程中可能出现卡顿）
+                canplaythrough：资源加载完毕，可以顺畅的播放了
+                ended：播放完成
+                loadedmetadata：资源的基础信息已经加载完成
+                loadeddata：整个资源都加载完成
+                pause：触发了暂停
+                play：触发了播放
+                playing：正在播放中
+                [方法]
+                pause()：暂停
+                play()：播放
+             -->
+            <audio src="audio/bell.mp3" loop preload="none" id="answerBell"></audio>
+            <audio src="audio/say.mp3" preload="none" id="introuduction"></audio>
+        </section>
+        <!-- message -->
+        <section class="messageBox">
+            <ul class="wrapper clearfix">
+                <li class="self">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageStudent.png" alt="" class="pic">
+                    面试官您好，我来自湖北武汉，专业是工业设计，学校是中国地质大学，这是我的简历。
+                </li>
+                <li class="inter">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageLogo.png" alt="" class="pic">
+                    请介绍一下自己的专业技能吧。
+                </li>
+                <li class="self">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageStudent.png" alt="" class="pic">
+                    本人擅长：原生js，ES6，promise等设计模式。
+                </li>
+                <li class="inter">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageLogo.png" alt="" class="pic">
+                    框架会用吗？我们公司主要用的Vue框架。
+                </li>
+                <li class="self">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageStudent.png" alt="" class="pic">
+                    之前公司使用的是react框架，个人对react渲染原理，mvc原理，spa单页面应用，掌握的很熟练，对于vue之前也做过，如果公司需要可以快速入手。
+                </li>
+                <li class="inter">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageLogo.png" alt="" class="pic">
+                    webpack会吗？
+                </li>
+                <li class="self">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageStudent.png" alt="" class="pic">
+                    之前的项目都是基于脚手架，自己偶尔去修改一些webpack配置项。
+                </li>
+                <li class="self">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageStudent.png" alt="" class="pic">
+                    不过目前正在深入研究，可以搭建简单的脚手架。
+                </li>
+                <li class="self">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageStudent.png" alt="" class="pic">
+                    对于node/express等后台开发也有所涉猎，只是没有应用到项目中，目前也正在研究，对这个比较感兴趣。
+                </li>
+                <li class="inter">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageLogo.png" alt="" class="pic">
+                    吭哧库坑加班要钱少能力高？
+                </li>
+                <li class="self">
+                    <i class="arrow"></i>
+                    <img src="./img/zf_messageStudent.png" alt="" class="pic">
+                    就是你了，明天来上班。
+                </li>
+            </ul>
+            <div class="keyBoard">
+                <span></span>
+                <a href="javascript:;" class="submit"></a>
+            </div>
+            <audio src="./audio/music.mp3" preload="none" loop id="demonMusic"></audio>
+        </section>
+        <!-- cube -->
+        <section class="cubeBox">
+        <ul class="cube">
+            <li><img src="img/zf_cube1.png" alt=""></li>
+            <li><img src="img/zf_cube2.png" alt=""></li>
+            <li><img src="img/zf_cube3.png" alt=""></li>
+            <li><img src="img/zf_cube4.png" alt=""></li>
+            <li><img src="img/zf_cube5.png" alt=""></li>
+            <li><img src="img/zf_cube6.png" alt=""></li>
+        </ul>
+        <img src="img/zf_cubeTip.png" alt="" class="tip">
+        </section>
+        <!-- detail -->
+        <section class="detailBox">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide page1">
+                        <dl>
+                            <dt>课程大纲</dt>
+                            <dd><em>01</em><a href="#">HTML(5)+CSS(3)+移动端响应式布局开发及相关插件的使用</a></dd>
+                            <dd><em>02</em><a href="#">js中的闭包及堆栈内存以及this的处理</a></dd>
+                            <dd><em>03</em><a href="#">JS中的面向对象编程，可以基于面向对象封装组件和插件等</a></dd>
+                            <dd><em>04</em><a href="#">ES6中的新特性及数组对象里面的常用方法</a></dd>
+                            <dd><em>05</em><a href="#">JS中的同步异步编程及Promise设计模式</a></dd>
+                            <dd><em>06</em><a href="#">JS中的DOM操作以及重绘和回流的优化</a></dd>
+                            <dd><em>07</em><a href="#">HTTP交互及AJAX库的封装以及跨域数据共享</a></dd>
+                            <dd><em>08</em><a href="#">VUE:VUE-CLI/VUE-ROUTER/VUEX/VUE ELEMENT等全家桶</a></dd>
+                            <dd><em>09</em><a href="#">REACT:REACT-ROUTER/REACT-REDUX/DVA/AXIOS/ANT等</a></dd>
+                            <dd><em>10</em><a href="#">JS中的事件委托及事件池及发布订阅设计模式</a></dd>
+                            <dd><em>11</em><a href="#">辅助技能：NODE/WEBPACK/GIT等</a></dd>
+                        </dl>
+                    </div>
+                    <div class="swiper-slide page2">
+                        <h2>课程体系</h2>
+                        <img src="./img/zf_course1.png" alt="">
+                        <img src="./img/zf_course2.png" alt="">
+                        <img src="./img/zf_course3.png" alt="">
+                        <img src="./img/zf_course4.png" alt="">
+                        <img src="./img/zf_course5.png" alt="">
+                        <img src="./img/zf_course6.png" alt="">
+                        <img src="./img/zf_course.png" alt="">
+                    </div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./js/zepto.min.js"></script>
+    <!-- 在zepto之后，index之前引入swiper -->
+    <script src="./js/swiper-3.4.2.jquery.min.js"></script>  
+    <!-- 在zepto之后，index之前引入makisu -->
+    <script src="./js/makisu.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
