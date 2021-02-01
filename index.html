@@ -6,73 +6,41 @@
     <title>Document</title>
 </head>
 <body>
-    <video id="video" width="640" height="480" autoplay></video>
+    <!-- <video id="video" width="640" height="480" autoplay></video>
     <button id="snap">snap photo</button>
-    <canvas id="canvas" width="640" height="480"></canvas>
+    <canvas id="canvas" width="640" height="480"></canvas> -->
+    <input type="file" accept="image/*" capture="camera" id="file"> 
+    <canvas id="canvas" ></canvas>
     <script>
-window.addEventListener("DOMContentLoaded", function() {
+        window.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('file').addEventListener('change', function() {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                compress(this.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+            }, false);
+            var compress = function (res) {
+                var img = new Image(),
+                maxH = 160;
+                img.onload = function () {
+                var cvs = document.createElement('canvas'),
+                ctx = cvs.getContext('2d');
+                if(img.height > maxH) {
+                img.width *= maxH / img.height;
+                img.height = maxH;
+                }
+                cvs.width = img.width;
+                cvs.height = img.height;
+                ctx.clearRect(0, 0, cvs.width, cvs.height);
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+                var dataUrl = cvs.toDataURL('image/jpeg', 0.6);
+                // 上传略
+                }
+                img.src = res;
+            }
 
-// canvas 元素将用于抓拍
-
-var canvas =
-
-document
-
-.getElementById("canvas"),
-
-context = canvas.getContext("2d"),
-
-// video 元素，将用于接收并播放摄像头 的数据流
-
-video = document.getElementById("video"),
-
-videoObj = { "video": true },
-
-errBack = function(error) {
-
-if("object" === typeof window.console){
-
-console.log("Video capture error: ", error.code);
-
-}
-
-};
-
-// Put video listeners into place
-
-// 针对标准的浏览器
-
-if(navigator.getUserMedia) { // Standard
-
-navigator.getUserMedia(videoObj, function(stream) {
-
-video.src = stream;
-
-video.play();
-
-}, errBack);
-
-}else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-
-navigator.webkitGetUserMedia(videoObj, function(stream){
-
-video.src = window.webkitURL.createObjectURL(stream);
-
-video.play();
-
-}, errBack);
-
-}
-
-document.getElementById("snap").addEventListener("click", function() {
-
-// 画到画布上
-
-context.drawImage(video, 0, 0, 640, 480);
-
-});
-
-}, false);
+        })
     </script>
 </body>
 </html>
